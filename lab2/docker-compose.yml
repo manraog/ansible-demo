@@ -1,0 +1,22 @@
+version: "2"
+services:
+  centos:
+    image: "sickp/centos-sshd"
+    ports:
+      - "2225:22"
+  ubuntu:
+    image: "auchida/ubuntu-sshd"
+    ports:
+      - "2224:22"
+  nginx:
+    image: "ernestgwilsonii/centos7-systemd-sshd"
+    ports:
+      - "2226:22"
+      - "8080:80"
+    security_opt:
+      - seccomp:unconfined
+    stop_signal: SIGRTMIN+3
+    tmpfs: 
+      - /run/lock
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro

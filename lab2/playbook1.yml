@@ -1,0 +1,20 @@
+---
+- hosts: centos1
+  tasks:
+    - name: 'Instala Apache'
+      yum:
+        name: 'httpd'
+        state: 'latest'
+ 
+- hosts: ubuntu1
+  become: true
+  vars:
+    packages: [ 'vim', 'git', 'curl' ]
+  tasks:
+    - name: 'Ejecuta el equivalente de "apt-get update"'
+      apt:
+        update_cache: yes
+    - name: 'Instala los paquetes'
+      apt:
+        name: '{{ packages }}'
+        state: 'latest'

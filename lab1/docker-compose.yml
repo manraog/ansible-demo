@@ -1,0 +1,10 @@
+version: "2"
+services:
+  docker_ssh1:
+    image: "auchida/ubuntu-sshd"
+    ports: 
+      - "2222:22"
+  docker_ssh2:
+    image: "auchida/ubuntu-sshd"
+    ports:
+       - "2223:22"
