@@ -17,6 +17,7 @@ services:
       - seccomp:unconfined
     stop_signal: SIGRTMIN+3
     tmpfs: 
+      - /run
       - /run/lock
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro

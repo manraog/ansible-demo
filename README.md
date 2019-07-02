@@ -204,12 +204,12 @@ vim playbook1.yml
 ```
 
 ## Check mode o dry-run
-	ansible-playbook --syntax-check test-playook1.yml
+	ansible-playbook -i inventory.ini --syntax-check playbook1.yml
 	
 	ansible-playbook -i inventory.ini --ask-become-pass --check playook1.yml
 
 ## Ejecutar Playbook
-	ansible-playbook -v -i inventory.ini --ask-become-pass playook1.yml
+	ansible-playbook -v -i inventory.ini --ask-become-pass playbook1.yml
 
 ```bash
 ansible -i inventory.ini -m setup ubuntu-host
@@ -227,7 +227,7 @@ sudo docker exec -it ubuntu vim --version
 
 Si ejecutamos nuevamente el playbook obtendremos un resultado de ejecución distinto:
 ```bash
-ansible-playbook -v -i inventory.ini --ask-become-pass playook1.yml
+ansible-playbook -v -i inventory.ini --ask-become-pass playbook1.yml
 ```
 
 ## Handlers
@@ -395,9 +395,9 @@ vim index.html.j2
 ```
 
 ### Ejecutar Playbook
-	ansible-playbook -vvv -i inventory.ini --ask-become-pass playook2.yml
+	ansible-playbook -vvv -i inventory.ini --ask-become-pass playbook2.yml
 
-	ansible-playbook -vvv -i inventory.ini --ask-become-pass playook2.yml
+	ansible-playbook -vvv -i inventory.ini --ask-become-pass playbook2.yml
 
 ### Cambio de Configuración
 
