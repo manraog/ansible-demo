@@ -1,5 +1,5 @@
 ---
-- hosts: nginx-servers
+- hosts: centos_nginx1 
   become: true
  
   tasks:
