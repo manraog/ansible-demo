@@ -223,14 +223,6 @@ docker exec -it lab2_ubuntu_1 git --version
 docker exec -it lab2_ubuntu_1 vim --version
 ```
 
-## Idempotencia
-
-Si ejecutamos nuevamente el playbook obtendremos un resultado de ejecución distinto:
-```bash
-ansible-playbook -v -i inventory.ini --ask-become-pass playbook1.yml
-```
-
-## Handlers
 
 ### Playbook
 
@@ -395,11 +387,17 @@ vim index.html.j2
 ```
 
 ### Ejecutar Playbook
-	ansible-playbook -vvv -i inventory.ini --ask-become-pass playbook2.yml
+```bash
+	ansible-playbook -v -i inventory.ini --ask-become-pass playbook2.yml
+```
 
-	ansible-playbook -vvv -i inventory.ini --ask-become-pass playbook2.yml
+### Idempotencia
+Si ejecutamos nuevamente el playbook ya no se realiaran cambios en el host:
+```bash
+ansible-playbook -v -i inventory.ini --ask-become-pass playbook2.yml
+```
 
-### Cambio de Configuración
+### Handlers
 
 ```bash
 vim ansiblePlaybooks/nginx.conf.j2
@@ -410,4 +408,10 @@ Y añadimos unos comentarios al inicio de nuestro template para simular cambios 
 # Configuración locochona
 # Más configuración
 # Fin de los cambios
+```
+
+Ejecutamos de nuevo el playbook
+### Ejecutar Playbook
+```bash
+	ansible-playbook -v -i inventory.ini --ask-become-pass playbook2.yml
 ```
