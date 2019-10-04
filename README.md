@@ -206,7 +206,7 @@ vim playbook1.yml
 ## Check mode o dry-run
 	ansible-playbook -i inventory.ini --syntax-check playbook1.yml
 	
-	ansible-playbook -i inventory.ini --ask-become-pass --check playook1.yml
+	ansible-playbook -i inventory.ini --ask-become-pass --check playbook1.yml
 
 ## Ejecutar Playbook
 	ansible-playbook -v -i inventory.ini --ask-become-pass playbook1.yml
@@ -217,10 +217,10 @@ ansible -i inventory.ini -m setup ubuntu-host
 
 ## Verificar instalación de paqutes
 ```bash
-sudo docker exec -it centos yum list installed httpd
-sudo docker exec -it ubuntu curl --version
-sudo docker exec -it ubuntu git --version
-sudo docker exec -it ubuntu vim --version
+docker exec -it lab2_centos_1 yum list installed httpd
+docker exec -it lab2_ubuntu_1 curl --version
+docker exec -it lab2_ubuntu_1 git --version
+docker exec -it lab2_ubuntu_1 vim --version
 ```
 
 ## Idempotencia
@@ -383,10 +383,10 @@ vim index.html.j2
 <!doctype html>
 <html>
   <head>
-    <title>NGINX S&PS</title>
+    <title>NGINX S SanPy</title>
   </head>
   <body>
-        <h1 style="text-align: center;"><strong><span style="color: #ff0000;">S&amp;P</span> Solutions</strong></h1>  
+        <h1 style="text-align: center;"><strong> Soluciones <span style="color: #ff0000;">SanPY</span> </strong></h1>  
         {# Usamos uno de los 'facts' recopilados por Ansible para mostrar la fecha del host #}
         <h1 style="text-align: center;"><strong>{{ ansible_date_time.date }}</strong></h1>  
         <!--<img src="https://img.devrant.com/devrant/rant/r_565529_WRQcK.jpg" alt="Doge HTML" align="middle"> -->        
@@ -407,7 +407,7 @@ vim ansiblePlaybooks/nginx.conf.j2
 
 Y añadimos unos comentarios al inicio de nuestro template para simular cambios en nuestra configuracion:
 ```conf
-# Configuración super loca
+# Configuración locochona
 # Más configuración
 # Fin de los cambios
 ```
